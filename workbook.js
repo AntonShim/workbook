@@ -663,9 +663,36 @@ const height = box.clientHeight; // получаем высоту окна/эл�
 
 console.log(box.getBoundingClientRect());// так мы можем посмотреть координаты элементы 
 
+// ============================45 Функции-конструкторы==================================================
 
+const num = new Number(3);
+console.log(num);  // мы получим Number с value 3 это oldcode
 
+// используется когда шаблонизация. ( юзеры, карточки и прочее в es5(!!!))
+function User(name, id) {
+    this.name = name; // у каждого пользователя будет уникальное имя
+    this.id = id;// у каждого пользователя будет уникальное id
+    this.human = true;
+    this.hello = function() {
+        console.log(`Привет ${this.name}, твой id - ${this.id}`);
+    };
+}
+// всегда можно добавить доп.аргумент через prototype
+User.prototype.exit = function(){
+    console.log(`Пользователь ${this.name} под №id - ${this.id} ушел.`);
+};
 
+const anton = new User('Антон', 25); 
+const olena = new User ('Алена', 22);
+
+anton.hello();
+olena.hello();
+
+anton.exit();
+olena.exit();
+
+console.log(anton);
+console.log(olena);
 
 
 
