@@ -694,14 +694,53 @@ olena.exit();
 console.log(anton);
 console.log(olena);
 
+// ================================== 46 урок контекст вызова. This =============================================================
+
+// Функция может вызываться 4-мя способами
+// 1) Обычная функция: This = window, но если use strict - undefined
+// 2) контекст у методов обьекта это - сам обьект 
+
+//1):=====
+function showThis() {
+    console.log(this);  // в строгом режиме (use strict) так  не работает, но если выбрать без него
+    // то в console будет window, если вызвать в строгом режиме, значение будет -undefined
+}
+showThis();
+// ====
+// задача
+function showThis(a, b) {
+    console.log(this);
+    function sum() {
+        console.log(this);
+        return this.a+this.b; // чтобы sum сраотало и все суммировалось, надо убрать this в ретурне
+    }
+}
+showThis(2, 5); 
+// =======
 
 
+// 2) контекст у методов обьекта это - сам обьект 
+const obj = {
+    a:20,
+    b:15,
+    sum: function() {
+        console.log(this);
+    }
+};
+obj.sum(); // вот так будет раскрывать конекст обьектов.
 
+// если вызвать функцию не в обьекте, а после, то уже будет undefined
 
-
-
-
-
-
-
+const obj = {
+    a:20,
+    b:15,
+    sum: function() {
+        function shout() {
+            console.log(this);
+        }
+        shout();
+    }
+};
+obj.sum();  // вот в этом примере мы вызываем this в функции уже,и там будет undefined
+// ============
 
