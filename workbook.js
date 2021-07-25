@@ -875,26 +875,26 @@ calcOrDouble(3); // получаем 6
 // ==========================================конец 49 урока====================================================
 // ==========================================51 урок JSON ====================================================
 
-const person = {
+const persone = {
     name: 'Anton',
     tel: '+79167781876'
 };
 
-console.log(JSON.stringify(person)); // получаем {"name":"Anton","tel":"+79167781876"}
+console.log(JSON.stringify(persone)); // получаем {"name":"Anton","tel":"+79167781876"}
 //в json главное правило, что все сущности должны быть в двойных ковьичках.
 
 //а теперь обратная ситуация, когда с сервера приходит json и его нам надо использовать
 //делается это с помощью parse
-const person = {
+const persone = {
     name: 'Anton',
     tel: '+79167781876'
 };
 
-console.log(JSON.parse(JSON.stringify(person))); // получаем { name: 'Anton', tel: '+79167781876' }
+console.log(JSON.parse(JSON.stringify(persone))); // получаем { name: 'Anton', tel: '+79167781876' }
 
 
 //разбираем глубокие копии.
-const person = {
+const persone = {
     name: 'Anton',
     tel: '+79167781876',
     parents: {
@@ -903,13 +903,13 @@ const person = {
     }
 };
 
-const clone = JSON.parse(JSON.stringify(person)); // создаем клон
+const clone = JSON.parse(JSON.stringify(persone)); // создаем клон
 //которые совершенно не зависит от первоначального обьекта.
 
 clone.parents.mom = 'Olga Shimarova';
-console.log(person); // parents: { mom: 'Olga', dad: 'Sergey' }
+console.log(persone); // parents: { mom: 'Olga', dad: 'Sergey' }
 console.log(clone); // parents: { mom: 'Olga Shimarova', dad: 'Sergey' }
-// в итоге мы получили 2-а разных обьекта  с помощью клона.
+// в итоге мы получили 2-а разных обьекта  с помощью JSON.
 // ==========================================конец 51 урока====================================================
 // ====================================52 урок AJAX и общение с сервером ======================================
 /* в уроке дан файл html где есть два окошка для конвертора валют  rub на usd
